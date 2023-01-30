@@ -58,6 +58,9 @@ namespace FiguresApp
             scale *= multipler_of_scale;
         }
 
-        public abstract void Show()
+        //public abstract void Show(Graphics g,)
+        //{
+
+        //}
     }
 }
