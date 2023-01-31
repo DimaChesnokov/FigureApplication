@@ -173,6 +173,17 @@
   <metadata name="saveFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>319, 17</value>
   </metadata>
+  <data name="button11.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADgAAAA6CAYAAADlTpoVAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAS
+        dAAAEnQB3mYfeAAAAThJREFUaEPtz0EOwyAQBEH//9OO+jBRDmMnhgV2I0qaS2KD+zj/3A6sbgdWtwOr
+        24HHcbxX0e1Xf8ZVjXwcyCppCmRVNAeyCroCWXbdgSyzkECWVVggy+hx4NXvWjZNgXD/aZk0B8L9r2XR
+        FQj3jJZBdyDcc9pqIYFwz2orhQXCPa+tEhoI9462Qngg3HvabEMC4d7VZhoWCPe+NsvQQLgztBmGB8Kd
+        w2aYEgh3FhttWiDceWykFIFslKmBcGdqI0wPhDtXi7YkEO5sLdKyQLjztShLA+Hu0CIsD4S7R+uVIhDu
+        Lq1HmkC4+7RWqQLh7tRapAuEu1d7KmUg3N3aE2kD4e7XfpU6EO4btF+kD4T7Du2bEoFw36LdeRyYdVf+
+        JpA5O7DSnNtAuIMy7srXwOp2YHU7sLbzfAG8j+Rqcd3xjgAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>35</value>
   </metadata>

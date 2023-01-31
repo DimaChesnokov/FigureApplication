@@ -18,7 +18,7 @@ namespace WindowsFormsPaint
         {
             
             InitializeComponent();
-            picture = new Bitmap(1000,1000);
+            picture = new Bitmap(1500,1500);
             X_new = Y_new = 0;
         }
 
@@ -63,6 +63,19 @@ namespace WindowsFormsPaint
 
         private void button6_Click(object sender, EventArgs e)
         {
+            //построить логический элемент Y.(два входа один выход) 
+        }
+
+        private void очисткаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = null;
+            graph.Clear(Color.White);
+        }
+
+        Graphics graph;
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
 
@@ -70,7 +83,7 @@ namespace WindowsFormsPaint
         {
             Pen pen;
             pen = new Pen(button1.BackColor);
-            Graphics graph;
+            
             graph = Graphics.FromImage(picture);
             if (e.Button == MouseButtons.Left)
             {
@@ -79,6 +92,8 @@ namespace WindowsFormsPaint
             }
             X_new = e.X;
             Y_new = e.Y;
+            //graph.DrawEllipse(pen)
+
         }
     }
 }
