@@ -39,6 +39,7 @@ namespace WindowsFormsPaint
             this.очисткаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button13 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
@@ -57,7 +58,6 @@ namespace WindowsFormsPaint
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.button13 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -72,7 +72,7 @@ namespace WindowsFormsPaint
             this.дополнительноToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1444, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1444, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -83,7 +83,7 @@ namespace WindowsFormsPaint
             this.сохранитьToolStripMenuItem,
             this.выходToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 26);
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
             // открытьToolStripMenuItem
@@ -113,7 +113,7 @@ namespace WindowsFormsPaint
             this.очисткаToolStripMenuItem,
             this.справкаToolStripMenuItem});
             this.дополнительноToolStripMenuItem.Name = "дополнительноToolStripMenuItem";
-            this.дополнительноToolStripMenuItem.Size = new System.Drawing.Size(134, 26);
+            this.дополнительноToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
             this.дополнительноToolStripMenuItem.Text = "Дополнительно";
             // 
             // очисткаToolStripMenuItem
@@ -148,12 +148,24 @@ namespace WindowsFormsPaint
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 30);
+            this.panel1.Location = new System.Drawing.Point(0, 28);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1444, 97);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // button13
+            // 
+            this.button13.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button13.Image = ((System.Drawing.Image)(resources.GetObject("button13.Image")));
+            this.button13.Location = new System.Drawing.Point(587, 23);
+            this.button13.Margin = new System.Windows.Forms.Padding(4);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(59, 66);
+            this.button13.TabIndex = 2;
+            this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button12
             // 
@@ -220,6 +232,7 @@ namespace WindowsFormsPaint
             this.button7.Size = new System.Drawing.Size(96, 66);
             this.button7.TabIndex = 7;
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button6
             // 
@@ -314,10 +327,10 @@ namespace WindowsFormsPaint
             // 
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 127);
+            this.panel2.Location = new System.Drawing.Point(0, 125);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1444, 667);
+            this.panel2.Size = new System.Drawing.Size(1444, 669);
             this.panel2.TabIndex = 4;
             // 
             // pictureBox1
@@ -327,9 +340,10 @@ namespace WindowsFormsPaint
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1444, 667);
+            this.pictureBox1.Size = new System.Drawing.Size(1444, 669);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             // 
             // openFileDialog1
@@ -341,18 +355,6 @@ namespace WindowsFormsPaint
             // saveFileDialog1
             // 
             this.saveFileDialog1.DefaultExt = "jpg";
-            // 
-            // button13
-            // 
-            this.button13.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button13.Image = ((System.Drawing.Image)(resources.GetObject("button13.Image")));
-            this.button13.Location = new System.Drawing.Point(587, 23);
-            this.button13.Margin = new System.Windows.Forms.Padding(4);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(59, 66);
-            this.button13.TabIndex = 2;
-            this.button13.UseVisualStyleBackColor = false;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // Form1
             // 

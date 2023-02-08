@@ -65,7 +65,16 @@ namespace WindowsFormsPaint
         string mode;
         private void button6_Click(object sender, EventArgs e)
         {
-            mode = "Прямая";//построить логический элемент Y.(два входа один выход) 
+            mode = "Прямая";//построить логический элемент Y.(два входа один выход)
+            //       Pen pen;
+            //pen = new Pen(button1.BackColor);
+
+            //graph = Graphics.FromImage(picture);
+            //if (e.Button == MouseButtons.Left)
+            //{
+                //graph.DrawLine(pen, 50, 50, e.X, e.Y);
+                //pictureBox1.Image = picture;
+            //}
 
         }
 
@@ -86,6 +95,40 @@ namespace WindowsFormsPaint
         {
             mode = "Карандаш";
         }
+       
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Pen pen;
+            pen = new Pen(button1.BackColor);
+            graph = Graphics.FromImage(picture);
+            Brush brush = new SolidBrush(button1.BackColor);
+            if (mode == "Прямая")
+            {
+                int CursorX = Cursor.Position.X;
+                int CursorY = Cursor.Position.Y;
+                X_new = CursorX -150;
+                Y_new = CursorY -150;
+             
+             
+                graph.DrawLine(pen, X_new, Y_new, CursorX, CursorY);
+                pictureBox1.Image = picture;
+               
+            }
+            else if(mode == "Квадрат")
+            {
+                int CursorX = Cursor.Position.X;
+                int CursorY = Cursor.Position.Y;
+                X_new = /*CursorX -*/ 15;
+                Y_new = /*CursorY -*/ 15;
+                Square square = new Square(100,CursorX,CursorY);
+                square.Show(graph,pen,brush);
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            mode = "Квадрат";
+        }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
@@ -95,12 +138,12 @@ namespace WindowsFormsPaint
             graph = Graphics.FromImage(picture);
             if (e.Button == MouseButtons.Left)
             {
-                if (mode == "Прямая")
-                {
-                    graph.DrawLine(pen, 50, 50, e.X, e.Y);
+                //if (mode == "Прямая")
+                //{
+                //    graph.DrawLine(pen, 50, 50, e.X, e.Y);
 
-                }
-                else 
+                //}
+                //else 
                 if (mode == "Карандаш")
                      graph.DrawLine(pen, X_new, Y_new, e.X, e.Y);
                 pictureBox1.Image = picture;

@@ -24,8 +24,8 @@ namespace WindowsFormsPaint
             int a = Convert.ToInt32(a_side * scale);
             int b = Convert.ToInt32(b_side * scale);
 
-            int X = center.X - a / 2;
-            int Y = center.Y - b / 2;
+            int X = center.X /*- a / 2*/;
+            int Y = center.Y /*- b / 2*/;
             Rectangle rect = new Rectangle(X, Y, a, b);
             graphics.DrawRectangle(pen, rect);
             graphics.FillRectangle(brush, rect);
