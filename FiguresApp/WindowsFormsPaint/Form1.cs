@@ -111,30 +111,43 @@ namespace WindowsFormsPaint
              
              
                 graph.DrawLine(pen, X_new, Y_new, CursorX, CursorY);
-                pictureBox1.Image = picture;
+                
                
             }
             else if(mode == "Квадрат")
             {
-                int CursorX = Cursor.Position.X;
-                int CursorY = Cursor.Position.Y;
+                int CursorX = MousePosition.X  - 120;/*- this.Height - 8;*/
+                int CursorY = MousePosition.Y /*- this.Height*/ - 250;
                 X_new = /*CursorX -*/ 15;
                 Y_new = /*CursorY -*/ 15;
-                Square square = new Square(100,CursorX,CursorY);
-                square.Show(graph,pen,brush);
+                Square square = new Square(100, CursorX, CursorY);
+                square.Show(graph, pen, brush);
+
+               
             }
+            pictureBox1.Image = picture;
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             mode = "Квадрат";
+            //Pen pen;
+            //pen = new Pen(button1.BackColor);
+            //graph = Graphics.FromImage(picture);
+            //Brush brush = new SolidBrush(button1.BackColor);
+            //int CursorX = MousePosition.X /*+ this.Height - 8*/;
+            //int CursorY = MousePosition.Y /*+ this.Width - 30*/;
+            //X_new = /*CursorX -*/ 15;
+            //Y_new = /*CursorY -*/ 15;
+            //Square square = new Square(100, CursorX, CursorY);
+            //square.Show(graph, pen, brush);
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             Pen pen;
             pen = new Pen(button1.BackColor);
-            
+
             graph = Graphics.FromImage(picture);
             if (e.Button == MouseButtons.Left)
             {
@@ -145,7 +158,7 @@ namespace WindowsFormsPaint
                 //}
                 //else 
                 if (mode == "Карандаш")
-                     graph.DrawLine(pen, X_new, Y_new, e.X, e.Y);
+                    graph.DrawLine(pen, X_new, Y_new, e.X, e.Y);
                 pictureBox1.Image = picture;
             }
             X_new = e.X;
