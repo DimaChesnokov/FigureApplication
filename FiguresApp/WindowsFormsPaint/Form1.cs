@@ -104,10 +104,10 @@ namespace WindowsFormsPaint
             Brush brush = new SolidBrush(button1.BackColor);
             if (mode == "Прямая")
             {
-                int CursorX = Cursor.Position.X;
-                int CursorY = Cursor.Position.Y;
-                X_new = CursorX -150;
-                Y_new = CursorY -150;
+                int CursorX = MousePosition.X + 5;
+                int CursorY = MousePosition.Y - /*this.Height */ 110; ;
+                X_new = CursorX - 200;
+                Y_new = CursorY - 200;
              
              
                 graph.DrawLine(pen, X_new, Y_new, CursorX, CursorY);
@@ -116,8 +116,8 @@ namespace WindowsFormsPaint
             }
             else if(mode == "Квадрат")
             {
-                int CursorX = MousePosition.X  - 120;/*- this.Height - 8;*/
-                int CursorY = MousePosition.Y /*- this.Height*/ - 250;
+                int CursorX = MousePosition.X /*- this.Height - 8*/;
+                int CursorY = MousePosition.Y - /*this.Height */ 100;
                 X_new = /*CursorX -*/ 15;
                 Y_new = /*CursorY -*/ 15;
                 Square square = new Square(100, CursorX, CursorY);
