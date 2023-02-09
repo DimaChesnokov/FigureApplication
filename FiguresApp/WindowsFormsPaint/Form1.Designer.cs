@@ -199,6 +199,7 @@ namespace WindowsFormsPaint
             this.button10.Size = new System.Drawing.Size(101, 66);
             this.button10.TabIndex = 10;
             this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button9
             // 
@@ -210,6 +211,7 @@ namespace WindowsFormsPaint
             this.button9.Size = new System.Drawing.Size(101, 66);
             this.button9.TabIndex = 9;
             this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button8
             // 
@@ -221,6 +223,7 @@ namespace WindowsFormsPaint
             this.button8.Size = new System.Drawing.Size(101, 66);
             this.button8.TabIndex = 8;
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
