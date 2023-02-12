@@ -162,7 +162,7 @@ namespace WindowsFormsPaint
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             Pen pen;
-            pen = new Pen(button1.BackColor,50);
+            pen = new Pen(button1.BackColor,4);
 
             graph = Graphics.FromImage(picture);
             if (e.Button == MouseButtons.Left)
