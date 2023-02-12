@@ -38,7 +38,9 @@ namespace WindowsFormsPaint
             this.дополнительноToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.очисткаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.фигурыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.button13 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
@@ -60,6 +62,7 @@ namespace WindowsFormsPaint
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -69,10 +72,11 @@ namespace WindowsFormsPaint
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
-            this.дополнительноToolStripMenuItem});
+            this.дополнительноToolStripMenuItem,
+            this.фигурыToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1444, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1479, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -129,9 +133,16 @@ namespace WindowsFormsPaint
             this.справкаToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.справкаToolStripMenuItem.Text = "Справка";
             // 
+            // фигурыToolStripMenuItem
+            // 
+            this.фигурыToolStripMenuItem.Name = "фигурыToolStripMenuItem";
+            this.фигурыToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.фигурыToolStripMenuItem.Text = "Фигуры";
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.trackBar1);
             this.panel1.Controls.Add(this.button13);
             this.panel1.Controls.Add(this.button12);
             this.panel1.Controls.Add(this.button11);
@@ -151,9 +162,17 @@ namespace WindowsFormsPaint
             this.panel1.Location = new System.Drawing.Point(0, 28);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1444, 97);
+            this.panel1.Size = new System.Drawing.Size(1479, 97);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(653, 33);
+            this.trackBar1.Maximum = 150;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(128, 56);
+            this.trackBar1.TabIndex = 1;
             // 
             // button13
             // 
@@ -182,7 +201,7 @@ namespace WindowsFormsPaint
             // 
             this.button11.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
-            this.button11.Location = new System.Drawing.Point(1285, 23);
+            this.button11.Location = new System.Drawing.Point(1357, 23);
             this.button11.Margin = new System.Windows.Forms.Padding(4);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(101, 66);
@@ -193,7 +212,7 @@ namespace WindowsFormsPaint
             // 
             this.button10.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button10.Image = ((System.Drawing.Image)(resources.GetObject("button10.Image")));
-            this.button10.Location = new System.Drawing.Point(1176, 23);
+            this.button10.Location = new System.Drawing.Point(1248, 23);
             this.button10.Margin = new System.Windows.Forms.Padding(4);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(101, 66);
@@ -205,7 +224,7 @@ namespace WindowsFormsPaint
             // 
             this.button9.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
-            this.button9.Location = new System.Drawing.Point(1066, 23);
+            this.button9.Location = new System.Drawing.Point(1138, 23);
             this.button9.Margin = new System.Windows.Forms.Padding(4);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(101, 66);
@@ -217,7 +236,7 @@ namespace WindowsFormsPaint
             // 
             this.button8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
-            this.button8.Location = new System.Drawing.Point(957, 23);
+            this.button8.Location = new System.Drawing.Point(1029, 23);
             this.button8.Margin = new System.Windows.Forms.Padding(4);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(101, 66);
@@ -229,7 +248,7 @@ namespace WindowsFormsPaint
             // 
             this.button7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.Location = new System.Drawing.Point(853, 23);
+            this.button7.Location = new System.Drawing.Point(925, 23);
             this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(96, 66);
@@ -241,7 +260,7 @@ namespace WindowsFormsPaint
             // 
             this.button6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.Location = new System.Drawing.Point(749, 23);
+            this.button6.Location = new System.Drawing.Point(821, 23);
             this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(96, 66);
@@ -333,7 +352,7 @@ namespace WindowsFormsPaint
             this.panel2.Location = new System.Drawing.Point(0, 125);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1444, 669);
+            this.panel2.Size = new System.Drawing.Size(1479, 669);
             this.panel2.TabIndex = 4;
             // 
             // pictureBox1
@@ -343,7 +362,7 @@ namespace WindowsFormsPaint
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1444, 669);
+            this.pictureBox1.Size = new System.Drawing.Size(1479, 669);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -363,7 +382,7 @@ namespace WindowsFormsPaint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1444, 794);
+            this.ClientSize = new System.Drawing.Size(1479, 794);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
@@ -376,6 +395,7 @@ namespace WindowsFormsPaint
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -413,6 +433,8 @@ namespace WindowsFormsPaint
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
         private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.ToolStripMenuItem фигурыToolStripMenuItem;
     }
 }
 

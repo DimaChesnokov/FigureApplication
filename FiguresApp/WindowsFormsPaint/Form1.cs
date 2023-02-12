@@ -8,19 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace WindowsFormsPaint
 {
     public partial class Form1 : Form
     {
         Bitmap picture;
-        Bitmap picture2;
+        
         int X_new, Y_new;
         public Form1()
         {
             
             InitializeComponent();
-            picture = new Bitmap(1500,1500);
-            picture2 = new Bitmap(1500, 1500);
+            picture = new Bitmap(2000,2000);
+            
             X_new = Y_new = 0;
         }
 
@@ -106,11 +107,13 @@ namespace WindowsFormsPaint
             }
             else if(mode == "Квадрат")
             {
+          
+                
                 int CursorX = MousePosition.X + 4/*- this.Height - 8*/;
                 int CursorY = MousePosition.Y - /*this.Height */ 120;
                 X_new = /*CursorX -*/ 15;
                 Y_new = /*CursorY -*/ 15;
-                Square square = new Square(200, CursorX, CursorY);
+                Square square = new Square(trackBar1.Value + 50, CursorX, CursorY);
                 square.Show(graph, pen, brush);
             }
             else if(mode == "Круг")
@@ -118,21 +121,21 @@ namespace WindowsFormsPaint
                 int CursorX = MousePosition.X + 3 ;
                 int CursorY = MousePosition.Y -  127;
 
-                Circle circle = new Circle(25, CursorX, CursorY);
+                Circle circle = new Circle(trackBar1.Value + 50, CursorX, CursorY);
                 circle.Show(graph,pen,brush);
             }
             else if(mode == "Эллипс")
             {
                 int CursorX = MousePosition.X + 4;
                 int CursorY = MousePosition.Y - 127;
-                Ellipse ellipse = new Ellipse(50, 30, CursorX, CursorY);
+                Ellipse ellipse = new Ellipse(trackBar1.Value + 90, trackBar1.Value + 40, CursorX, CursorY);
                 ellipse.Show(graph, pen, brush);
             }
             else if(mode == "Прямоугольник")
             {
                 int CursorX = MousePosition.X + 4;
                 int CursorY = MousePosition.Y - 127;
-                MyRectangle rectangle = new MyRectangle(150, 70, CursorX, CursorY);
+                MyRectangle rectangle = new MyRectangle(trackBar1.Value + 100, trackBar1.Value + 30, CursorX, CursorY);
                 
                 rectangle.Show(graph,pen,brush);
             }
@@ -159,20 +162,24 @@ namespace WindowsFormsPaint
             mode = "Прямоугольник";
         }
 
+        private void размерФигурToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            
+        }
+        
+
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             Pen pen;
-            pen = new Pen(button1.BackColor,4);
+            pen = new Pen(button1.BackColor,trackBar1.Value);
+            pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
+            pen.StartCap = System.Drawing.Drawing2D.LineCap.Round;
 
             graph = Graphics.FromImage(picture);
             if (e.Button == MouseButtons.Left)
             {
-                //if (mode == "Прямая")
-                //{
-                //    graph.DrawLine(pen, 50, 50, e.X, e.Y);
-
-                //}
-                //else 
+              
                 if (mode == "Карандаш")
                     graph.DrawLine(pen, X_new, Y_new, e.X, e.Y);
                 pictureBox1.Image = picture;
