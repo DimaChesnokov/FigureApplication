@@ -27,7 +27,7 @@ namespace WindowsFormsPaint
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            label5.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -64,10 +64,6 @@ namespace WindowsFormsPaint
             this.Close();
         }
         string mode;
-        private void button6_Click(object sender, EventArgs e)
-        {
-            mode = "Прямая";
-        }
 
         private void очисткаToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -85,6 +81,7 @@ namespace WindowsFormsPaint
         private void button13_Click(object sender, EventArgs e)
         {
             mode = "Карандаш";
+            TurnOffPropertys();
         }
        
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -142,25 +139,6 @@ namespace WindowsFormsPaint
             pictureBox1.Image = picture;
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            mode = "Квадрат";
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            mode = "Круг";
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            mode = "Эллипс";
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            mode = "Прямоугольник";
-        }
 
         private void размерФигурToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -168,6 +146,52 @@ namespace WindowsFormsPaint
             
         }
         
+        private void comboBox2_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string figure = comboBox2.SelectedItem.ToString();
+            switch(figure)
+            {
+                case "Прямая":
+                    mode = "Прямая";
+                    label5.Visible = true;
+                    break;
+                case "Квадрат":
+                    mode = "Квадрат";
+                    label5.Visible = true;
+                    break;
+                case "Прямоугольник":
+                    mode = "Прямоугольник";
+                    label5.Visible = true;
+                    break;
+                case "Круг":
+                    mode = "Круг";
+                    label5.Visible = true;
+                    break;
+                case "Эллипс":
+                    mode = "Эллипс";
+                    label5.Visible = true;
+                    break;
+                
+            }
+                
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            mode = "Ластик";
+            TurnOffPropertys();
+        }
+        void TurnOffPropertys()
+        {
+            label5.Visible = false;
+            comboBox2.Text = "";
+            //comboBox2.SelectedItem = null;
+        }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
@@ -182,6 +206,14 @@ namespace WindowsFormsPaint
               
                 if (mode == "Карандаш")
                     graph.DrawLine(pen, X_new, Y_new, e.X, e.Y);
+                else if(mode == "Ластик")
+                {
+                    pen = new Pen(Color.White, trackBar1.Value);
+
+                    pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
+                    pen.StartCap = System.Drawing.Drawing2D.LineCap.Round;
+                    graph.DrawLine(pen, X_new, Y_new, e.X, e.Y);
+                }
                 pictureBox1.Image = picture;
             }
             X_new = e.X;
