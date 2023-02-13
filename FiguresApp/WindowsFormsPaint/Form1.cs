@@ -14,14 +14,15 @@ namespace WindowsFormsPaint
     public partial class Form1 : Form
     {
         Bitmap picture;
-        
+        bool modeMove = false;
         int X_new, Y_new;
         public Form1()
         {
             
             InitializeComponent();
             picture = new Bitmap(2000,2000);
-            
+            this.MouseMove += new MouseEventHandler(mouseEvent);
+            this.MouseClick += new MouseEventHandler(mouseClick);
             X_new = Y_new = 0;
         }
 
@@ -220,6 +221,37 @@ namespace WindowsFormsPaint
             Y_new = e.Y;
             
 
+        }
+        
+        object currObject = null;
+        void mouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button.ToString() == "Right")
+            {
+                currObject = null;
+            }
+        }
+        void mouseEvent(object sender, MouseEventArgs e)
+        {
+            if (currObject != null && modeMove)
+            {
+                currObject.GetType().GetProperty("Location").SetValue(currObject, new Point(Cursor.Position.X, Cursor.Position.Y - 50));
+                
+            }
+        }
+
+        private void режимПеремещенияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            modeMove = true;
+            mode = "";
+            TurnOffPropertys();
+        }
+
+        void Form1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (modeMove == false)
+                return;
+            currObject = sender;
         }
     }
 }

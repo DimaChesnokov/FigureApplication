@@ -39,6 +39,7 @@ namespace WindowsFormsPaint
             this.очисткаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.фигурыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.режимПеремещенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -75,7 +76,7 @@ namespace WindowsFormsPaint
             this.фигурыToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1491, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1491, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -86,7 +87,7 @@ namespace WindowsFormsPaint
             this.сохранитьToolStripMenuItem,
             this.выходToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 26);
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
             // открытьToolStripMenuItem
@@ -116,7 +117,7 @@ namespace WindowsFormsPaint
             this.очисткаToolStripMenuItem,
             this.справкаToolStripMenuItem});
             this.дополнительноToolStripMenuItem.Name = "дополнительноToolStripMenuItem";
-            this.дополнительноToolStripMenuItem.Size = new System.Drawing.Size(134, 26);
+            this.дополнительноToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
             this.дополнительноToolStripMenuItem.Text = "Дополнительно";
             // 
             // очисткаToolStripMenuItem
@@ -134,9 +135,18 @@ namespace WindowsFormsPaint
             // 
             // фигурыToolStripMenuItem
             // 
+            this.фигурыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.режимПеремещенияToolStripMenuItem});
             this.фигурыToolStripMenuItem.Name = "фигурыToolStripMenuItem";
-            this.фигурыToolStripMenuItem.Size = new System.Drawing.Size(76, 26);
+            this.фигурыToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
             this.фигурыToolStripMenuItem.Text = "Фигуры";
+            // 
+            // режимПеремещенияToolStripMenuItem
+            // 
+            this.режимПеремещенияToolStripMenuItem.Name = "режимПеремещенияToolStripMenuItem";
+            this.режимПеремещенияToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
+            this.режимПеремещенияToolStripMenuItem.Text = "Режим перемещения";
+            this.режимПеремещенияToolStripMenuItem.Click += new System.EventHandler(this.режимПеремещенияToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -157,7 +167,7 @@ namespace WindowsFormsPaint
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 30);
+            this.panel1.Location = new System.Drawing.Point(0, 28);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1491, 97);
@@ -338,10 +348,10 @@ namespace WindowsFormsPaint
             // 
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 127);
+            this.panel2.Location = new System.Drawing.Point(0, 125);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1491, 667);
+            this.panel2.Size = new System.Drawing.Size(1491, 669);
             this.panel2.TabIndex = 4;
             // 
             // pictureBox1
@@ -351,7 +361,7 @@ namespace WindowsFormsPaint
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1491, 667);
+            this.pictureBox1.Size = new System.Drawing.Size(1491, 669);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -423,6 +433,7 @@ namespace WindowsFormsPaint
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.ToolStripMenuItem режимПеремещенияToolStripMenuItem;
     }
 }
 
