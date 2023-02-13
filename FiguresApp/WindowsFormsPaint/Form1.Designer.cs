@@ -29,6 +29,7 @@ namespace WindowsFormsPaint
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,11 +61,17 @@ namespace WindowsFormsPaint
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.trackBar2 = new System.Windows.Forms.TrackBar();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.gToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -347,6 +354,7 @@ namespace WindowsFormsPaint
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.trackBar2);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 125);
@@ -378,6 +386,36 @@ namespace WindowsFormsPaint
             // 
             this.saveFileDialog1.DefaultExt = "jpg";
             // 
+            // trackBar2
+            // 
+            this.trackBar2.Location = new System.Drawing.Point(925, 85);
+            this.trackBar2.Maximum = 150;
+            this.trackBar2.Name = "trackBar2";
+            this.trackBar2.Size = new System.Drawing.Size(128, 56);
+            this.trackBar2.TabIndex = 2;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gToolStripMenuItem,
+            this.gdToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(97, 52);
+            this.contextMenuStrip1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // gToolStripMenuItem
+            // 
+            this.gToolStripMenuItem.Name = "gToolStripMenuItem";
+            this.gToolStripMenuItem.Size = new System.Drawing.Size(96, 24);
+            this.gToolStripMenuItem.Text = "g";
+            // 
+            // gdToolStripMenuItem
+            // 
+            this.gdToolStripMenuItem.Name = "gdToolStripMenuItem";
+            this.gdToolStripMenuItem.Size = new System.Drawing.Size(96, 24);
+            this.gdToolStripMenuItem.Text = "gd";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -397,7 +435,10 @@ namespace WindowsFormsPaint
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -435,6 +476,10 @@ namespace WindowsFormsPaint
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.ToolStripMenuItem фигурыToolStripMenuItem;
+        private System.Windows.Forms.TrackBar trackBar2;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem gToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gdToolStripMenuItem;
     }
 }
 
