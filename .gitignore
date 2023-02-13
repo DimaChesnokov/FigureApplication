@@ -348,7 +348,3 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
-FiguresApp/WindowsFormsPaint/Form1.Designer.cs
-*.cs
-FiguresApp/WindowsFormsPaint/Form1.Designer.cs
-FiguresApp/WindowsFormsPaint/Form1.resx

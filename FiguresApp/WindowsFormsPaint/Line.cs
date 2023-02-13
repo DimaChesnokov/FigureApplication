@@ -10,7 +10,6 @@ namespace WindowsFormsPaint
 {
     internal class Line : Figure
     {
-        //ds
         Point firts_point;
         Point second_point;
 

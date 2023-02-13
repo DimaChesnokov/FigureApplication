@@ -93,7 +93,7 @@ namespace WindowsFormsPaint
             if (mode == "Прямая")
             {
                 int CursorX = MousePosition.X + 5;
-                int CursorY = MousePosition.Y -  110; ;
+                int CursorY = MousePosition.Y - /*this.Height */ 110; ;
                 X_new = CursorX - 100;
                 Y_new = CursorY - 100;
              
@@ -148,7 +148,7 @@ namespace WindowsFormsPaint
         
         private void comboBox2_MouseClick(object sender, MouseEventArgs e)
         {
-
+             //ds
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -195,12 +195,6 @@ namespace WindowsFormsPaint
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            //if(e.Button == MouseButtons.Right)
-            //{
-            //    contextMenuStrip1.Show(e.Location);
-            //    return;
-            //}
-
             Pen pen;
             pen = new Pen(button1.BackColor,trackBar1.Value);
             pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
