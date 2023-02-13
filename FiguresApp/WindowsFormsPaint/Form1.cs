@@ -224,11 +224,24 @@ namespace WindowsFormsPaint
         }
         
         object currObject = null;
+        bool click = false;
         void mouseClick(object sender, MouseEventArgs e)
         {
+            if (modeMove == false)
+                return;
             if (e.Button.ToString() == "Right")
             {
-                currObject = null;
+                if (click == false)
+                {
+                    currObject = sender;
+                    click = true;
+                } 
+                else
+                {
+                    currObject = null;
+                    click = false;
+                 }
+                
             }
         }
         void mouseEvent(object sender, MouseEventArgs e)
