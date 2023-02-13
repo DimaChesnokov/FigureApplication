@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 
 namespace WindowsFormsPaint
@@ -16,14 +17,22 @@ namespace WindowsFormsPaint
         Bitmap picture;
         bool modeMove = false;
         int X_new, Y_new;
+        List<object> listObjects;
+        object currObj;
+        Point oldPoint;
+
         public Form1()
         {
             
             InitializeComponent();
             picture = new Bitmap(2000,2000);
-            this.MouseMove += new MouseEventHandler(mouseEvent);
-            this.MouseClick += new MouseEventHandler(mouseClick);
+            this.DoubleBuffered = true;
+            //this.MouseDown += Form1_MouseDown;
+            //this.MouseUp += Form1_MouseUp;
+            //this.MouseMove += Form1_MouseMove;
+            this.Paint += Form1_Paint; 
             X_new = Y_new = 0;
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -105,13 +114,13 @@ namespace WindowsFormsPaint
             }
             else if(mode == "Квадрат")
             {
-          
-                
+
                 int CursorX = MousePosition.X + 4/*- this.Height - 8*/;
                 int CursorY = MousePosition.Y - /*this.Height */ 120;
                 X_new = /*CursorX -*/ 15;
                 Y_new = /*CursorY -*/ 15;
                 Square square = new Square(trackBar1.Value + 50, CursorX, CursorY);
+                
                 square.Show(graph, pen, brush);
             }
             else if(mode == "Круг")
@@ -128,6 +137,7 @@ namespace WindowsFormsPaint
                 int CursorY = MousePosition.Y - 127;
                 Ellipse ellipse = new Ellipse(trackBar1.Value + 90, trackBar1.Value + 40, CursorX, CursorY);
                 ellipse.Show(graph, pen, brush);
+                listObjects.Add(ellipse);
             }
             else if(mode == "Прямоугольник")
             {
@@ -223,36 +233,7 @@ namespace WindowsFormsPaint
 
         }
         
-        object currObject = null;
-        bool click = false;
-        void mouseClick(object sender, MouseEventArgs e)
-        {
-            if (modeMove == false)
-                return;
-            if (e.Button.ToString() == "Right")
-            {
-                if (click == false)
-                {
-                    currObject = sender;
-                    click = true;
-                } 
-                else
-                {
-                    currObject = null;
-                    click = false;
-                 }
-                
-            }
-        }
-        void mouseEvent(object sender, MouseEventArgs e)
-        {
-            if (currObject != null && modeMove)
-            {
-                currObject.GetType().GetProperty("Location").SetValue(currObject, new Point(Cursor.Position.X, Cursor.Position.Y - 50));
-                
-            }
-        }
-
+       
         private void режимПеремещенияToolStripMenuItem_Click(object sender, EventArgs e)
         {
             modeMove = true;
@@ -260,11 +241,67 @@ namespace WindowsFormsPaint
             TurnOffPropertys();
         }
 
-        void Form1_MouseClick(object sender, MouseEventArgs e)
+        void Form1_Paint(object sender, PaintEventArgs e)
         {
-            if (modeMove == false)
-                return;
-            currObject = sender;
+            if (picture == null) return;
+            //RefreshBitmap();
+            e.Graphics.DrawImage(picture, 0, 0);
         }
+
+        //void Form1_MouseMove(object sender, MouseEventArgs e)
+        //{
+        //    switch (e.Button)
+        //    {
+        //        case MouseButtons.Left:
+        //            //Считаем смещение курсора
+        //            int deltaX, deltaY;
+        //            deltaX = e.Location.X - oldPoint.X;
+        //            deltaY = e.Location.Y - oldPoint.Y;
+        //            //Смещаем нарисованный объект
+        //            currObj.Path.Transform(new Matrix(1, 0, 0, 1, deltaX, deltaY));
+        //            //Запоминаем новое положение курсора
+        //            oldPoint = e.Location;
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //    //Обновляем форму
+        //    this.Refresh();
+        //}
+
+        //void Form1_MouseUp(object sender, MouseEventArgs e)
+        //{
+        //    currObj.Pen.Width -= 1;//Возвращаем ширину пера
+        //    currObj = null;//Убираем ссылку на объект
+        //}
+
+        //void Form1_MouseDown(object sender, MouseEventArgs e)
+        //{
+        //    //Запоминаем положение курсора
+        //    oldPoint = e.Location;
+        //    //Ищем объект, в который попала точка. Если таких несколько, то найден будет первый по списку
+        //    foreach (object po in listObjects)
+        //    {
+        //        if (po.Path.GetBounds().Contains(e.Location))
+        //        {
+        //            currObj = po;//Запоминаем найденный объект
+        //            currObj.Pen.Width += 1;//Делаем перо жирнее
+        //            return;
+        //        }
+        //    }
+        //}
+        //void RefreshBitmap()
+        //{
+        //    if (picture != null) picture.Dispose();
+        //    picture = new Bitmap(this.ClientSize.Width, this.ClientSize.Height);
+        //    //Прорисовка всех объектов из списка
+        //    using (Graphics g = Graphics.FromImage(picture))
+        //    {
+        //        foreach (object po in listObjects)
+        //        {
+        //            g.DrawPath(po.Pen, po.Path);
+        //        }
+        //    }
+        //}
     }
 }
