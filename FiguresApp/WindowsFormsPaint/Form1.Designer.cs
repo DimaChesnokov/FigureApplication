@@ -40,6 +40,8 @@ namespace WindowsFormsPaint
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.фигурыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -57,8 +59,6 @@ namespace WindowsFormsPaint
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -75,7 +75,7 @@ namespace WindowsFormsPaint
             this.фигурыToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1491, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1491, 30);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -86,7 +86,7 @@ namespace WindowsFormsPaint
             this.сохранитьToolStripMenuItem,
             this.выходToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 26);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
             // открытьToolStripMenuItem
@@ -116,7 +116,7 @@ namespace WindowsFormsPaint
             this.очисткаToolStripMenuItem,
             this.справкаToolStripMenuItem});
             this.дополнительноToolStripMenuItem.Name = "дополнительноToolStripMenuItem";
-            this.дополнительноToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
+            this.дополнительноToolStripMenuItem.Size = new System.Drawing.Size(134, 26);
             this.дополнительноToolStripMenuItem.Text = "Дополнительно";
             // 
             // очисткаToolStripMenuItem
@@ -135,7 +135,7 @@ namespace WindowsFormsPaint
             // фигурыToolStripMenuItem
             // 
             this.фигурыToolStripMenuItem.Name = "фигурыToolStripMenuItem";
-            this.фигурыToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.фигурыToolStripMenuItem.Size = new System.Drawing.Size(76, 26);
             this.фигурыToolStripMenuItem.Text = "Фигуры";
             // 
             // panel1
@@ -157,12 +157,35 @@ namespace WindowsFormsPaint
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 28);
+            this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1491, 97);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
+            this.button6.Location = new System.Drawing.Point(636, 24);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(59, 66);
+            this.button6.TabIndex = 16;
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(1067, 12);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(249, 29);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Настройка свойств";
             // 
             // label4
             // 
@@ -315,10 +338,10 @@ namespace WindowsFormsPaint
             // 
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 125);
+            this.panel2.Location = new System.Drawing.Point(0, 127);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1491, 669);
+            this.panel2.Size = new System.Drawing.Size(1491, 667);
             this.panel2.TabIndex = 4;
             // 
             // pictureBox1
@@ -328,7 +351,7 @@ namespace WindowsFormsPaint
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1491, 669);
+            this.pictureBox1.Size = new System.Drawing.Size(1491, 667);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -343,29 +366,6 @@ namespace WindowsFormsPaint
             // saveFileDialog1
             // 
             this.saveFileDialog1.DefaultExt = "jpg";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(1067, 12);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(249, 29);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Настройка свойств";
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.Location = new System.Drawing.Point(636, 24);
-            this.button6.Margin = new System.Windows.Forms.Padding(4);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(59, 66);
-            this.button6.TabIndex = 16;
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // Form1
             // 
