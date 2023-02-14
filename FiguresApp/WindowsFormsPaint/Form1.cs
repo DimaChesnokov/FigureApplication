@@ -38,6 +38,8 @@ namespace WindowsFormsPaint
         private void Form1_Load(object sender, EventArgs e)
         {
             label5.Visible = false;
+            trackBar2.Visible = false;
+            trackBar3.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -74,7 +76,7 @@ namespace WindowsFormsPaint
             this.Close();
         }
         string mode;
-
+        string Mov;
         private void очисткаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pictureBox1.Image = null;
@@ -97,31 +99,37 @@ namespace WindowsFormsPaint
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Pen pen;
-            pen = new Pen(button1.BackColor,5);
+            pen = new Pen(button1.BackColor, trackBar1.Value - 10);
             graph = Graphics.FromImage(picture);
             Brush brush = new SolidBrush(button1.BackColor);
             if (mode == "Прямая")
             {
-                int CursorX = MousePosition.X + 5;
-                int CursorY = MousePosition.Y - /*this.Height */ 110; ;
-                X_new = CursorX - 100;
-                Y_new = CursorY - 100;
-             
-             
-                graph.DrawLine(pen, X_new, Y_new, CursorX, CursorY);
+
+                int CursorX = MousePosition.X + 23;
+                int CursorY = MousePosition.Y - 113; 
+                X_new = CursorX    - trackBar2.Value;
+                Y_new = CursorY  - trackBar3.Value;
+                //graph.DrawLine(pen, X_new, Y_new, CursorX, CursorY);
+
+                Line line = new Line(X_new,Y_new,CursorX,CursorY,5,5);
+                line.Show(graph, pen, brush);
                 
-               
             }
             else if(mode == "Квадрат")
             {
 
-                int CursorX = MousePosition.X + 4/*- this.Height - 8*/;
-                int CursorY = MousePosition.Y - /*this.Height */ 120;
+                int CursorX = MousePosition.X + 4;
+                int CursorY = MousePosition.Y - 120;
                 X_new = /*CursorX -*/ 15;
                 Y_new = /*CursorY -*/ 15;
                 Square square = new Square(trackBar1.Value + 50, CursorX, CursorY);
                 
                 square.Show(graph, pen, brush);
+
+                //if (Mov == "Left")
+                //{
+                //    square.Moving(CursorX - 100, CursorY);
+                //}
             }
             else if(mode == "Круг")
             {
@@ -135,9 +143,9 @@ namespace WindowsFormsPaint
             {
                 int CursorX = MousePosition.X + 4;
                 int CursorY = MousePosition.Y - 127;
-                Ellipse ellipse = new Ellipse(trackBar1.Value + 90, trackBar1.Value + 40, CursorX, CursorY);
+                Ellipse ellipse = new Ellipse(trackBar1.Value + 70, trackBar1.Value + 30, CursorX, CursorY);
                 ellipse.Show(graph, pen, brush);
-                listObjects.Add(ellipse);
+                
             }
             else if(mode == "Прямоугольник")
             {
@@ -159,36 +167,36 @@ namespace WindowsFormsPaint
         
         private void comboBox2_MouseClick(object sender, MouseEventArgs e)
         {
-             //ds
+             
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string figure = comboBox2.SelectedItem.ToString();
-            switch(figure)
-            {
-                case "Прямая":
-                    mode = "Прямая";
-                    label5.Visible = true;
-                    break;
-                case "Квадрат":
-                    mode = "Квадрат";
-                    label5.Visible = true;
-                    break;
-                case "Прямоугольник":
-                    mode = "Прямоугольник";
-                    label5.Visible = true;
-                    break;
-                case "Круг":
-                    mode = "Круг";
-                    label5.Visible = true;
-                    break;
-                case "Эллипс":
-                    mode = "Эллипс";
-                    label5.Visible = true;
-                    break;
+            //string figure = comboBox2.SelectedItem.ToString();
+            //switch(figure)
+            //{
+            //    case "Прямая":
+            //        mode = "Прямая";
+            //        label5.Visible = true;
+            //        break;
+            //    case "Квадрат":
+            //        mode = "Квадрат";
+            //        //label5.Visible = true;
+            //        break;
+            //    case "Прямоугольник":
+            //        mode = "Прямоугольник";
+            //        //label5.Visible = true;
+            //        break;
+            //    case "Круг":
+            //        mode = "Круг";
+            //        //label5.Visible = true;
+            //        break;
+            //    case "Эллипс":
+            //        mode = "Эллипс";
+            //        //label5.Visible = true;
+            //        break;
                 
-            }
+            //}
                 
         }
 
@@ -199,8 +207,8 @@ namespace WindowsFormsPaint
         }
         void TurnOffPropertys()
         {
-            label5.Visible = false;
-            comboBox2.Text = "";
+            //label5.Visible = false;
+            //comboBox2.Text = "";
             //comboBox2.SelectedItem = null;
         }
 
@@ -239,6 +247,52 @@ namespace WindowsFormsPaint
             modeMove = true;
             mode = "";
             TurnOffPropertys();
+        }
+
+        private void квадратToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mode = "Квадрат";
+            label5.Visible = false;
+            trackBar2.Visible = false;
+            trackBar3.Visible = false;
+        }
+
+        private void прямоугольникToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mode = "Прямоугольник";
+            label5.Visible = false;
+            trackBar2.Visible = false;
+            trackBar3.Visible = false;
+        }
+
+        private void эллипсToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mode = "Эллипс";
+            label5.Visible = false;
+            trackBar2.Visible = false;
+            trackBar3.Visible = false;
+        }
+
+        private void кругToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mode = "Круг";
+            label5.Visible = false;
+            trackBar2.Visible = false;
+            trackBar3.Visible = false;
+        }
+
+        private void прямаяToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mode = "Прямая";
+            label5.Visible = true;
+            trackBar2.Visible = true;
+            trackBar3.Visible = true;
+        }
+
+        private void leftToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Mov = "Left";
+            
         }
 
         void Form1_Paint(object sender, PaintEventArgs e)
