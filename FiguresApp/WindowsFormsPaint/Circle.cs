@@ -10,7 +10,7 @@ namespace WindowsFormsPaint
     {
         public Circle(int radius,int x, int y) : base(radius,radius,x,y)
         {
-            //леха бог
+            
         }
     }
 }

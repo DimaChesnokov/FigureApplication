@@ -40,7 +40,15 @@ namespace WindowsFormsPaint
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.фигурыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.режимПеремещенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.leftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.квадратToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.прямоугольникToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.эллипсToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.кругToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.прямаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.trackBar3 = new System.Windows.Forms.TrackBar();
+            this.trackBar2 = new System.Windows.Forms.TrackBar();
             this.button6 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -58,21 +66,13 @@ namespace WindowsFormsPaint
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.trackBar2 = new System.Windows.Forms.TrackBar();
-            this.квадратToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.прямоугольникToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.эллипсToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.кругToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.прямаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.trackBar3 = new System.Windows.Forms.TrackBar();
-            this.leftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -163,6 +163,48 @@ namespace WindowsFormsPaint
             this.режимПеремещенияToolStripMenuItem.Text = "Режим перемещения";
             this.режимПеремещенияToolStripMenuItem.Click += new System.EventHandler(this.режимПеремещенияToolStripMenuItem_Click);
             // 
+            // leftToolStripMenuItem
+            // 
+            this.leftToolStripMenuItem.Name = "leftToolStripMenuItem";
+            this.leftToolStripMenuItem.Size = new System.Drawing.Size(117, 26);
+            this.leftToolStripMenuItem.Text = "Left";
+            this.leftToolStripMenuItem.Click += new System.EventHandler(this.leftToolStripMenuItem_Click);
+            // 
+            // квадратToolStripMenuItem
+            // 
+            this.квадратToolStripMenuItem.Name = "квадратToolStripMenuItem";
+            this.квадратToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
+            this.квадратToolStripMenuItem.Text = "Квадрат";
+            this.квадратToolStripMenuItem.Click += new System.EventHandler(this.квадратToolStripMenuItem_Click);
+            // 
+            // прямоугольникToolStripMenuItem
+            // 
+            this.прямоугольникToolStripMenuItem.Name = "прямоугольникToolStripMenuItem";
+            this.прямоугольникToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
+            this.прямоугольникToolStripMenuItem.Text = "Прямоугольник";
+            this.прямоугольникToolStripMenuItem.Click += new System.EventHandler(this.прямоугольникToolStripMenuItem_Click);
+            // 
+            // эллипсToolStripMenuItem
+            // 
+            this.эллипсToolStripMenuItem.Name = "эллипсToolStripMenuItem";
+            this.эллипсToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
+            this.эллипсToolStripMenuItem.Text = "Эллипс";
+            this.эллипсToolStripMenuItem.Click += new System.EventHandler(this.эллипсToolStripMenuItem_Click);
+            // 
+            // кругToolStripMenuItem
+            // 
+            this.кругToolStripMenuItem.Name = "кругToolStripMenuItem";
+            this.кругToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
+            this.кругToolStripMenuItem.Text = "Круг";
+            this.кругToolStripMenuItem.Click += new System.EventHandler(this.кругToolStripMenuItem_Click);
+            // 
+            // прямаяToolStripMenuItem
+            // 
+            this.прямаяToolStripMenuItem.Name = "прямаяToolStripMenuItem";
+            this.прямаяToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
+            this.прямаяToolStripMenuItem.Text = "Прямая";
+            this.прямаяToolStripMenuItem.Click += new System.EventHandler(this.прямаяToolStripMenuItem_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
@@ -188,6 +230,24 @@ namespace WindowsFormsPaint
             this.panel1.Size = new System.Drawing.Size(1491, 97);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // trackBar3
+            // 
+            this.trackBar3.Location = new System.Drawing.Point(1090, 44);
+            this.trackBar3.Maximum = 450;
+            this.trackBar3.Minimum = -450;
+            this.trackBar3.Name = "trackBar3";
+            this.trackBar3.Size = new System.Drawing.Size(128, 56);
+            this.trackBar3.TabIndex = 17;
+            // 
+            // trackBar2
+            // 
+            this.trackBar2.Location = new System.Drawing.Point(956, 44);
+            this.trackBar2.Maximum = 360;
+            this.trackBar2.Minimum = -360;
+            this.trackBar2.Name = "trackBar2";
+            this.trackBar2.Size = new System.Drawing.Size(128, 56);
+            this.trackBar2.TabIndex = 2;
             // 
             // button6
             // 
@@ -364,66 +424,6 @@ namespace WindowsFormsPaint
             // 
             this.saveFileDialog1.DefaultExt = "jpg";
             // 
-            // trackBar2
-            // 
-            this.trackBar2.Location = new System.Drawing.Point(956, 44);
-            this.trackBar2.Maximum = 360;
-            this.trackBar2.Minimum = -360;
-            this.trackBar2.Name = "trackBar2";
-            this.trackBar2.Size = new System.Drawing.Size(128, 56);
-            this.trackBar2.TabIndex = 2;
-            // 
-            // квадратToolStripMenuItem
-            // 
-            this.квадратToolStripMenuItem.Name = "квадратToolStripMenuItem";
-            this.квадратToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
-            this.квадратToolStripMenuItem.Text = "Квадрат";
-            this.квадратToolStripMenuItem.Click += new System.EventHandler(this.квадратToolStripMenuItem_Click);
-            // 
-            // прямоугольникToolStripMenuItem
-            // 
-            this.прямоугольникToolStripMenuItem.Name = "прямоугольникToolStripMenuItem";
-            this.прямоугольникToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
-            this.прямоугольникToolStripMenuItem.Text = "Прямоугольник";
-            this.прямоугольникToolStripMenuItem.Click += new System.EventHandler(this.прямоугольникToolStripMenuItem_Click);
-            // 
-            // эллипсToolStripMenuItem
-            // 
-            this.эллипсToolStripMenuItem.Name = "эллипсToolStripMenuItem";
-            this.эллипсToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
-            this.эллипсToolStripMenuItem.Text = "Эллипс";
-            this.эллипсToolStripMenuItem.Click += new System.EventHandler(this.эллипсToolStripMenuItem_Click);
-            // 
-            // кругToolStripMenuItem
-            // 
-            this.кругToolStripMenuItem.Name = "кругToolStripMenuItem";
-            this.кругToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
-            this.кругToolStripMenuItem.Text = "Круг";
-            this.кругToolStripMenuItem.Click += new System.EventHandler(this.кругToolStripMenuItem_Click);
-            // 
-            // прямаяToolStripMenuItem
-            // 
-            this.прямаяToolStripMenuItem.Name = "прямаяToolStripMenuItem";
-            this.прямаяToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
-            this.прямаяToolStripMenuItem.Text = "Прямая";
-            this.прямаяToolStripMenuItem.Click += new System.EventHandler(this.прямаяToolStripMenuItem_Click);
-            // 
-            // trackBar3
-            // 
-            this.trackBar3.Location = new System.Drawing.Point(1090, 44);
-            this.trackBar3.Maximum = 450;
-            this.trackBar3.Minimum = -450;
-            this.trackBar3.Name = "trackBar3";
-            this.trackBar3.Size = new System.Drawing.Size(128, 56);
-            this.trackBar3.TabIndex = 17;
-            // 
-            // leftToolStripMenuItem
-            // 
-            this.leftToolStripMenuItem.Name = "leftToolStripMenuItem";
-            this.leftToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.leftToolStripMenuItem.Text = "Left";
-            this.leftToolStripMenuItem.Click += new System.EventHandler(this.leftToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -441,11 +441,11 @@ namespace WindowsFormsPaint
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
