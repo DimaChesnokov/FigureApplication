@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
+using Microsoft.VisualBasic;
+
 
 
 namespace WindowsFormsPaint
@@ -20,6 +22,8 @@ namespace WindowsFormsPaint
         List<object> listObjects;
         object currObj;
         Point oldPoint;
+        bool create_fig = false;
+        Create_Figure create;
 
         public Form1()
         {
@@ -222,16 +226,22 @@ namespace WindowsFormsPaint
             graph = Graphics.FromImage(picture);
             if (e.Button == MouseButtons.Left)
             {
-              
+
                 if (mode == "Карандаш")
+                {
                     graph.DrawLine(pen, X_new, Y_new, e.X, e.Y);
-                else if(mode == "Ластик")
+                }
+                else if (mode == "Ластик")
                 {
                     pen = new Pen(Color.White, trackBar1.Value);
 
                     pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
                     pen.StartCap = System.Drawing.Drawing2D.LineCap.Round;
                     graph.DrawLine(pen, X_new, Y_new, e.X, e.Y);
+                }
+                if(create_fig == true)
+                {
+
                 }
                 pictureBox1.Image = picture;
             }
@@ -247,6 +257,7 @@ namespace WindowsFormsPaint
             modeMove = true;
             mode = "";
             TurnOffPropertys();
+            Destroy_button("save_fig");
         }
 
         private void квадратToolStripMenuItem_Click(object sender, EventArgs e)
@@ -255,6 +266,7 @@ namespace WindowsFormsPaint
             label5.Visible = false;
             trackBar2.Visible = false;
             trackBar3.Visible = false;
+            Destroy_button("save_fig");
         }
 
         private void прямоугольникToolStripMenuItem_Click(object sender, EventArgs e)
@@ -263,6 +275,7 @@ namespace WindowsFormsPaint
             label5.Visible = false;
             trackBar2.Visible = false;
             trackBar3.Visible = false;
+            Destroy_button("save_fig");
         }
 
         private void эллипсToolStripMenuItem_Click(object sender, EventArgs e)
@@ -271,6 +284,7 @@ namespace WindowsFormsPaint
             label5.Visible = false;
             trackBar2.Visible = false;
             trackBar3.Visible = false;
+            Destroy_button("save_fig");
         }
 
         private void кругToolStripMenuItem_Click(object sender, EventArgs e)
@@ -279,6 +293,7 @@ namespace WindowsFormsPaint
             label5.Visible = false;
             trackBar2.Visible = false;
             trackBar3.Visible = false;
+            Destroy_button("save_fig");
         }
 
         private void прямаяToolStripMenuItem_Click(object sender, EventArgs e)
@@ -287,6 +302,7 @@ namespace WindowsFormsPaint
             label5.Visible = true;
             trackBar2.Visible = true;
             trackBar3.Visible = true;
+            Destroy_button("save_fig");
         }
 
         private void leftToolStripMenuItem_Click(object sender, EventArgs e)
@@ -294,6 +310,37 @@ namespace WindowsFormsPaint
             Mov = "Left";
             
         }
+        #region Save_Figure
+         
+        private void создатьНовуюToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Destroy_button("save_fig");
+            Button save_fig = new Button();
+
+            save_fig.Text = "Сохранить фигуру!";
+            save_fig.Location = new Point(650, 12);
+            save_fig.Width = 91;
+            save_fig.Height = 35;
+            save_fig.Click += new EventHandler(save_fig_Click);
+            panel1.Controls.Add(save_fig);
+            create_fig = true;
+        }
+        private void save_fig_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("");
+            string res = Interaction.InputBox("Внимание!", "Введите название новой фигуры:");
+            //InputBox ib = new InputBox("Внимание!", "Введите название:");
+            фигурыToolStripMenuItem.DropDownItems.Add(res);
+            
+        }
+        void Destroy_button(string name)
+        {
+            Button b = panel1.Controls[name] as Button;
+            panel1.Controls.Remove(b);
+            create_fig = false;
+            create = null;
+        }
+        #endregion
 
         void Form1_Paint(object sender, PaintEventArgs e)
         {

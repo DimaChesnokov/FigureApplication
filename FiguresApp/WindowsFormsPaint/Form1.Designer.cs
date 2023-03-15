@@ -66,6 +66,8 @@ namespace WindowsFormsPaint
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.создатьНовуюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button7 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
@@ -131,14 +133,14 @@ namespace WindowsFormsPaint
             // очисткаToolStripMenuItem
             // 
             this.очисткаToolStripMenuItem.Name = "очисткаToolStripMenuItem";
-            this.очисткаToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            this.очисткаToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.очисткаToolStripMenuItem.Text = "Очистка";
             this.очисткаToolStripMenuItem.Click += new System.EventHandler(this.очисткаToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem
             // 
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.справкаToolStripMenuItem.Text = "Справка";
             // 
             // фигурыToolStripMenuItem
@@ -149,7 +151,8 @@ namespace WindowsFormsPaint
             this.прямоугольникToolStripMenuItem,
             this.эллипсToolStripMenuItem,
             this.кругToolStripMenuItem,
-            this.прямаяToolStripMenuItem});
+            this.прямаяToolStripMenuItem,
+            this.создатьНовуюToolStripMenuItem});
             this.фигурыToolStripMenuItem.Name = "фигурыToolStripMenuItem";
             this.фигурыToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
             this.фигурыToolStripMenuItem.Text = "Фигуры";
@@ -166,7 +169,7 @@ namespace WindowsFormsPaint
             // leftToolStripMenuItem
             // 
             this.leftToolStripMenuItem.Name = "leftToolStripMenuItem";
-            this.leftToolStripMenuItem.Size = new System.Drawing.Size(117, 26);
+            this.leftToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.leftToolStripMenuItem.Text = "Left";
             this.leftToolStripMenuItem.Click += new System.EventHandler(this.leftToolStripMenuItem_Click);
             // 
@@ -208,6 +211,7 @@ namespace WindowsFormsPaint
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.trackBar3);
             this.panel1.Controls.Add(this.trackBar2);
             this.panel1.Controls.Add(this.button6);
@@ -424,6 +428,22 @@ namespace WindowsFormsPaint
             // 
             this.saveFileDialog1.DefaultExt = "jpg";
             // 
+            // создатьНовуюToolStripMenuItem
+            // 
+            this.создатьНовуюToolStripMenuItem.Name = "создатьНовуюToolStripMenuItem";
+            this.создатьНовуюToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
+            this.создатьНовуюToolStripMenuItem.Text = "Создать новую";
+            this.создатьНовуюToolStripMenuItem.Click += new System.EventHandler(this.создатьНовуюToolStripMenuItem_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(1064, 23);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(91, 35);
+            this.button7.TabIndex = 18;
+            this.button7.Text = "button7";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -489,6 +509,8 @@ namespace WindowsFormsPaint
         private System.Windows.Forms.ToolStripMenuItem прямаяToolStripMenuItem;
         private System.Windows.Forms.TrackBar trackBar3;
         private System.Windows.Forms.ToolStripMenuItem leftToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem создатьНовуюToolStripMenuItem;
+        private System.Windows.Forms.Button button7;
     }
 }
 
