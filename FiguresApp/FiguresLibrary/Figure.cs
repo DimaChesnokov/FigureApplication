@@ -77,7 +77,10 @@ namespace FiguresLibrary
             dragged = false;
             color = Color.Black;
         }
+        public Figure()
+        {
 
+        }
         /// <summary>
         /// Метод позволяющий двигать фигуру в плоскости
         /// </summary>

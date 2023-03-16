@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
+using Microsoft.VisualBasic;
 //using Microsoft.VisualBasic;
 
 
@@ -23,8 +24,8 @@ namespace WindowsFormsPaint
         object currObj;
         Point oldPoint;
         bool create_fig = false;
-        Create_Figure create;
-
+        //Create_Figure create;
+        List<Point> Blueprint = new List<Point>();
         public Form1()
         {
             
@@ -239,9 +240,16 @@ namespace WindowsFormsPaint
                     pen.StartCap = System.Drawing.Drawing2D.LineCap.Round;
                     graph.DrawLine(pen, X_new, Y_new, e.X, e.Y);
                 }
-                if(create_fig == true)
+                if (create_fig == true)
                 {
-
+                    Point p;
+                    if (Blueprint.Count == 0)
+                    {
+                        p = new Point(X_new, Y_new);
+                        Blueprint.Add(p);
+                    }
+                    p = new Point(e.X, e.Y);
+                    Blueprint.Add(p);
                 }
                 pictureBox1.Image = picture;
             }
@@ -257,7 +265,7 @@ namespace WindowsFormsPaint
             modeMove = true;
             mode = "";
             TurnOffPropertys();
-            Destroy_button("save_fig");
+            Destroy_button();
         }
 
         private void квадратToolStripMenuItem_Click(object sender, EventArgs e)
@@ -266,7 +274,7 @@ namespace WindowsFormsPaint
             label5.Visible = false;
             trackBar2.Visible = false;
             trackBar3.Visible = false;
-            Destroy_button("save_fig");
+            Destroy_button();
         }
 
         private void прямоугольникToolStripMenuItem_Click(object sender, EventArgs e)
@@ -275,7 +283,7 @@ namespace WindowsFormsPaint
             label5.Visible = false;
             trackBar2.Visible = false;
             trackBar3.Visible = false;
-            Destroy_button("Сохранить фигуру!");
+            Destroy_button();
         }
 
         private void эллипсToolStripMenuItem_Click(object sender, EventArgs e)
@@ -284,7 +292,7 @@ namespace WindowsFormsPaint
             label5.Visible = false;
             trackBar2.Visible = false;
             trackBar3.Visible = false;
-            Destroy_button("Сохранить фигуру!");
+            Destroy_button();
         }
 
         private void кругToolStripMenuItem_Click(object sender, EventArgs e)
@@ -293,7 +301,7 @@ namespace WindowsFormsPaint
             label5.Visible = false;
             trackBar2.Visible = false;
             trackBar3.Visible = false;
-            Destroy_button("Сохранить фигуру!");
+            Destroy_button();
         }
 
         private void прямаяToolStripMenuItem_Click(object sender, EventArgs e)
@@ -302,7 +310,7 @@ namespace WindowsFormsPaint
             label5.Visible = true;
             trackBar2.Visible = true;
             trackBar3.Visible = true;
-            Destroy_button("Сохранить фигуру!");
+            Destroy_button();
         }
 
         private void leftToolStripMenuItem_Click(object sender, EventArgs e)
@@ -311,12 +319,12 @@ namespace WindowsFormsPaint
             
         }
         #region Save_Figure
-         
+        Button save_fig;
+        List<Create_Figure> list_cf = new List<Create_Figure>();
         private void создатьНовуюToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Destroy_button("Сохранить фигуру!");
-            Button save_fig = new Button();
-
+            Destroy_button();
+            save_fig = new Button();
             save_fig.Text = "Сохранить фигуру!";
             save_fig.Location = new Point(650, 12);
             save_fig.Width = 91;
@@ -327,31 +335,40 @@ namespace WindowsFormsPaint
         }
         private void save_fig_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("куаввва");
-            //string res = Interaction.InputBox("Внимание!", "Введите название новой фигуры:");
-            //InputBox ib = new InputBox("Внимание!", "Введите название:");
-            фигурыToolStripMenuItem.DropDownItems.Add("lm,l");
+            
+            string res = Interaction.InputBox("Внимание!", "Введите название новой фигуры:");
+            Create_Figure cf = new Create_Figure();
+            cf.name_fig = res;
+            cf.Blueprint = Blueprint;
+            list_cf.Add(cf);
+            ToolStripMenuItem new_figure = new ToolStripMenuItem();
+            new_figure.Name = res + "ToolStripMenuItem";
+            new_figure.Text = res;
+            фигурыToolStripMenuItem.DropDownItems.Add(new_figure);
+            new_figure.Click += (s, ea) => {
+                foreach(var f in list_cf)
+                {
+                    if(f.name_fig == s.ToString())
+                    {
+                        Pen pen = new Pen(button1.BackColor, trackBar1.Value);
+                        pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
+                        pen.StartCap = System.Drawing.Drawing2D.LineCap.Round;
+                        graph = Graphics.FromImage(picture);
+                        Brush brush = new SolidBrush(pictureBox1.BackColor);
+                        f.Show(graph, pen, brush);
+                        pictureBox1.Image = picture;
+                    }
+                }
+            };
             
         }
-        void Destroy_button(string s)
+        void Destroy_button()
         {
-            Button b = panel1.Controls["save_fig"] as Button;
-            if (panel1.Controls.Contains(b))
-            {
-                MessageBox.Show("Кнопка найдена");
-            }
-            panel1.Controls.Remove(b);
-            Controls.Remove(b);
-            if (b != null)
-                b.Dispose();
+            panel1.Controls.Remove(save_fig);
+            if(save_fig != null)
+                save_fig.Dispose();
             create_fig = false;
-            create = null;
-            if (panel1.Controls.Contains(b))
-            {
-                MessageBox.Show("Кнопка не была удалена из Panel");
-            }
-            panel1.Refresh();
-            // MessageBox.Show("destroy");
+            //create = null;
         }
         #endregion
 
