@@ -13,10 +13,10 @@ namespace WindowsFormsPaint
         Point firts_point;
         Point second_point;
         List<Point> Blueprint;
-        public Create_Figure(List<Point> b)
-        {
-            Blueprint = b;
-        }
+        //public Create_Figure(List<Point> b)
+        //{
+        //    Blueprint = b;
+        //}
 
         public Create_Figure(int x1, int y1, int x2, int y2, int x_center, int y_center) : base(x_center, y_center)
         {            

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
-using Microsoft.VisualBasic;
+//using Microsoft.VisualBasic;
 
 
 
@@ -275,7 +275,7 @@ namespace WindowsFormsPaint
             label5.Visible = false;
             trackBar2.Visible = false;
             trackBar3.Visible = false;
-            Destroy_button("save_fig");
+            Destroy_button("Сохранить фигуру!");
         }
 
         private void эллипсToolStripMenuItem_Click(object sender, EventArgs e)
@@ -284,7 +284,7 @@ namespace WindowsFormsPaint
             label5.Visible = false;
             trackBar2.Visible = false;
             trackBar3.Visible = false;
-            Destroy_button("save_fig");
+            Destroy_button("Сохранить фигуру!");
         }
 
         private void кругToolStripMenuItem_Click(object sender, EventArgs e)
@@ -293,7 +293,7 @@ namespace WindowsFormsPaint
             label5.Visible = false;
             trackBar2.Visible = false;
             trackBar3.Visible = false;
-            Destroy_button("save_fig");
+            Destroy_button("Сохранить фигуру!");
         }
 
         private void прямаяToolStripMenuItem_Click(object sender, EventArgs e)
@@ -302,7 +302,7 @@ namespace WindowsFormsPaint
             label5.Visible = true;
             trackBar2.Visible = true;
             trackBar3.Visible = true;
-            Destroy_button("save_fig");
+            Destroy_button("Сохранить фигуру!");
         }
 
         private void leftToolStripMenuItem_Click(object sender, EventArgs e)
@@ -314,7 +314,7 @@ namespace WindowsFormsPaint
          
         private void создатьНовуюToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Destroy_button("save_fig");
+            Destroy_button("Сохранить фигуру!");
             Button save_fig = new Button();
 
             save_fig.Text = "Сохранить фигуру!";
@@ -327,18 +327,31 @@ namespace WindowsFormsPaint
         }
         private void save_fig_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("");
-            string res = Interaction.InputBox("Внимание!", "Введите название новой фигуры:");
+            MessageBox.Show("куаввва");
+            //string res = Interaction.InputBox("Внимание!", "Введите название новой фигуры:");
             //InputBox ib = new InputBox("Внимание!", "Введите название:");
-            фигурыToolStripMenuItem.DropDownItems.Add(res);
+            фигурыToolStripMenuItem.DropDownItems.Add("lm,l");
             
         }
-        void Destroy_button(string name)
+        void Destroy_button(string s)
         {
-            Button b = panel1.Controls[name] as Button;
+            Button b = panel1.Controls["save_fig"] as Button;
+            if (panel1.Controls.Contains(b))
+            {
+                MessageBox.Show("Кнопка найдена");
+            }
             panel1.Controls.Remove(b);
+            Controls.Remove(b);
+            if (b != null)
+                b.Dispose();
             create_fig = false;
             create = null;
+            if (panel1.Controls.Contains(b))
+            {
+                MessageBox.Show("Кнопка не была удалена из Panel");
+            }
+            panel1.Refresh();
+            // MessageBox.Show("destroy");
         }
         #endregion
 
