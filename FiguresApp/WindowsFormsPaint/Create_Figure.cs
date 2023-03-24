@@ -13,25 +13,25 @@ namespace WindowsFormsPaint
         Point firts_point;
         Point second_point;
         public string name_fig { get; set; }
-        public List<Point> Blueprint;
+        public List<Ppoint> Blueprint;
         //public Create_Figure(List<Point> b)
         //{
         //    Blueprint = b;
         //}
         public Create_Figure() { }
-        public Create_Figure(int x1, int y1, int x2, int y2, int x_center, int y_center) : base(x_center, y_center)
-        {            
-            firts_point = new Point(x1, y1);
-            second_point = new Point(x2, y2);
-            if (Blueprint.Count == 0)
-                Blueprint.Add(firts_point);
-            Blueprint.Add(second_point);
-        }
+        //public Create_Figure(int x1, int y1, int x2, int y2, int x_center, int y_center) : base(x_center, y_center)
+        //{            
+        //    firts_point = new Point(x1, y1);
+        //    second_point = new Point(x2, y2);
+        //    if (Blueprint.Count == 0)
+        //        Blueprint.Add(firts_point);
+        //    Blueprint.Add(second_point);
+        //}
 
         public override void Show(Graphics graphics, Pen pen, Brush brush)
         {
             for(int i = 1; i < Blueprint.Count; i++)
-                graphics.DrawLine(pen, Blueprint[i-1], Blueprint[i]);
+                graphics.DrawLine(Blueprint[i-1].pen, Blueprint[i-1].p, Blueprint[i].p);
         }
 
         public override Rectangle Region_Capture()
@@ -43,5 +43,13 @@ namespace WindowsFormsPaint
             int Y = center.Y - b / 2;
             return new Rectangle(X, Y, a, b);
         }
+    }
+
+    class Ppoint
+    {
+        public Pen pen { get; set; }
+        public Point p { get; set; }
+        public Ppoint() { }
+        public Ppoint(Point po, Pen pe) { pen = pe; p = po; }
     }
 }

@@ -40,7 +40,6 @@ namespace WindowsFormsPaint
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.фигурыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.режимПеремещенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.leftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.квадратToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.прямоугольникToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.эллипсToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -158,19 +157,10 @@ namespace WindowsFormsPaint
             // 
             // режимПеремещенияToolStripMenuItem
             // 
-            this.режимПеремещенияToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.leftToolStripMenuItem});
             this.режимПеремещенияToolStripMenuItem.Name = "режимПеремещенияToolStripMenuItem";
             this.режимПеремещенияToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
             this.режимПеремещенияToolStripMenuItem.Text = "Режим перемещения";
             this.режимПеремещенияToolStripMenuItem.Click += new System.EventHandler(this.режимПеремещенияToolStripMenuItem_Click);
-            // 
-            // leftToolStripMenuItem
-            // 
-            this.leftToolStripMenuItem.Name = "leftToolStripMenuItem";
-            this.leftToolStripMenuItem.Size = new System.Drawing.Size(117, 26);
-            this.leftToolStripMenuItem.Text = "Left";
-            this.leftToolStripMenuItem.Click += new System.EventHandler(this.leftToolStripMenuItem_Click);
             // 
             // квадратToolStripMenuItem
             // 
@@ -497,7 +487,6 @@ namespace WindowsFormsPaint
         private System.Windows.Forms.ToolStripMenuItem кругToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem прямаяToolStripMenuItem;
         private System.Windows.Forms.TrackBar trackBar3;
-        private System.Windows.Forms.ToolStripMenuItem leftToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem создатьНовуюToolStripMenuItem;
     }
 }

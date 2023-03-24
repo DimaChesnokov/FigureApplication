@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using Microsoft.VisualBasic;
+using FiguresLibrary;
 //using Microsoft.VisualBasic;
 
 
@@ -20,16 +21,18 @@ namespace WindowsFormsPaint
         Bitmap picture;
         bool modeMove = false;
         int X_new, Y_new;
-        List<object> listObjects;
-        object currObj;
+        List<Figure> listObjects = new List<Figure>();//список всех фигур(кроме карандаша)
+        
+        Figure SelectedFig;//фигура на которую нажали(дял перемещения)
         Point oldPoint;
         bool create_fig = false;
         //Create_Figure create;
-        List<Point> Blueprint = new List<Point>();
+        List<Ppoint> Blueprint = new List<Ppoint>();//для ручного создания фигуры
         public Form1()
         {
             
             InitializeComponent();
+            WindowState = FormWindowState.Maximized;
             picture = new Bitmap(2000,2000);
             this.DoubleBuffered = true;
             //this.MouseDown += Form1_MouseDown;
@@ -118,7 +121,7 @@ namespace WindowsFormsPaint
 
                 Line line = new Line(X_new,Y_new,CursorX,CursorY,5,5);
                 line.Show(graph, pen, brush);
-                
+                listObjects.Add(line);
             }
             else if(mode == "Квадрат")
             {
@@ -130,7 +133,7 @@ namespace WindowsFormsPaint
                 Square square = new Square(trackBar1.Value + 50, CursorX, CursorY);
                 
                 square.Show(graph, pen, brush);
-
+                listObjects.Add(square);
                 //if (Mov == "Left")
                 //{
                 //    square.Moving(CursorX - 100, CursorY);
@@ -143,6 +146,7 @@ namespace WindowsFormsPaint
 
                 Circle circle = new Circle(trackBar1.Value + 50, CursorX, CursorY);
                 circle.Show(graph,pen,brush);
+                listObjects.Add(circle);
             }
             else if(mode == "Эллипс")
             {
@@ -150,7 +154,7 @@ namespace WindowsFormsPaint
                 int CursorY = MousePosition.Y - 127;
                 Ellipse ellipse = new Ellipse(trackBar1.Value + 70, trackBar1.Value + 30, CursorX, CursorY);
                 ellipse.Show(graph, pen, brush);
-                
+                listObjects.Add(ellipse);
             }
             else if(mode == "Прямоугольник")
             {
@@ -159,6 +163,25 @@ namespace WindowsFormsPaint
                 MyRectangle rectangle = new MyRectangle(trackBar1.Value + 100, trackBar1.Value + 30, CursorX, CursorY);
                 
                 rectangle.Show(graph,pen,brush);
+                listObjects.Add(rectangle);
+            }
+            else if(modeMove)
+            {
+                int CursorX = MousePosition.X + 4;
+                int CursorY = MousePosition.Y - 127;
+                Figure v;
+                for(int i = listObjects.Count - 1; i >0; i--)//идем с конца тк если фигура последняя она сверху, и чтобы не получилось, что взяли фигуру под фигурой
+                {
+                    v = listObjects[i];
+                    Rectangle r = v.Region_Capture();
+                    Point left_up = r.Location;
+
+                    if(CursorX>left_up.X&&CursorX<left_up.X+r.Width&& CursorY > left_up.Y && CursorY < left_up.Y + r.Height)
+                    {
+                        SelectedFig = v;
+                        //listObjects.Remove(v);
+                    }
+                }
             }
             pictureBox1.Image = picture;
         }
@@ -240,16 +263,28 @@ namespace WindowsFormsPaint
                     pen.StartCap = System.Drawing.Drawing2D.LineCap.Round;
                     graph.DrawLine(pen, X_new, Y_new, e.X, e.Y);
                 }
+                else if(modeMove)//перемещение фигуры... в теории
+                {
+                    int x = X_new - e.X;
+                    int y = Y_new - e.Y;
+                    SelectedFig.Moving(x, y);
+                   // SelectedFig.Show();
+
+                }
                 if (create_fig == true)
                 {
                     Point p;
+                    Ppoint pp = new Ppoint();
+                    pp.pen = pen;
                     if (Blueprint.Count == 0)
                     {
                         p = new Point(X_new, Y_new);
-                        Blueprint.Add(p);
+                        pp.p = p;
+                        
+                        Blueprint.Add(pp);
                     }
-                    p = new Point(e.X, e.Y);
-                    Blueprint.Add(p);
+                    pp.p = new Point(e.X, e.Y);
+                    Blueprint.Add(pp);
                 }
                 pictureBox1.Image = picture;
             }
@@ -258,8 +293,8 @@ namespace WindowsFormsPaint
             
 
         }
-        
-       
+
+        #region SelectFigure
         private void режимПеремещенияToolStripMenuItem_Click(object sender, EventArgs e)
         {
             modeMove = true;
@@ -270,6 +305,7 @@ namespace WindowsFormsPaint
 
         private void квадратToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            modeMove = false;
             mode = "Квадрат";
             label5.Visible = false;
             trackBar2.Visible = false;
@@ -279,6 +315,7 @@ namespace WindowsFormsPaint
 
         private void прямоугольникToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            modeMove = false;
             mode = "Прямоугольник";
             label5.Visible = false;
             trackBar2.Visible = false;
@@ -288,6 +325,7 @@ namespace WindowsFormsPaint
 
         private void эллипсToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            modeMove = false;
             mode = "Эллипс";
             label5.Visible = false;
             trackBar2.Visible = false;
@@ -297,6 +335,7 @@ namespace WindowsFormsPaint
 
         private void кругToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            modeMove = false;
             mode = "Круг";
             label5.Visible = false;
             trackBar2.Visible = false;
@@ -306,19 +345,21 @@ namespace WindowsFormsPaint
 
         private void прямаяToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            modeMove = false;
             mode = "Прямая";
             label5.Visible = true;
             trackBar2.Visible = true;
             trackBar3.Visible = true;
             Destroy_button();
         }
+        #endregion
 
         private void leftToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Mov = "Left";
             
         }
-        #region Save_Figure
+        #region Create_Figure
         Button save_fig;
         List<Create_Figure> list_cf = new List<Create_Figure>();
         private void создатьНовуюToolStripMenuItem_Click(object sender, EventArgs e)
